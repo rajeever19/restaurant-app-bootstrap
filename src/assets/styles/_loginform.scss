@@ -1,0 +1,92 @@
+.form_container {
+  height: 100vh;
+  width: 100%;
+  // background-image: url(../image/background-1.jpeg);
+  background-color: $bg-grey;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  .form_setup {
+    height: 520px;
+    width: 400px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 20px;
+    .header {
+      font-size: 20px;
+      width: 100%;
+      display: flex;
+      color: rgb(7, 6, 6);
+      justify-content: center;
+      background-color: inherit;
+    }
+    form {
+      margin-top: 15px;
+
+      .label1 {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        div {
+          width: 48%;
+        }
+      }
+      .single_line {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        input[type="text"] {
+          width: 48%;
+          padding: 6px 10px;
+          margin: 2px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+      }
+      label {
+        font-style: normal;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 6px 10px;
+        margin: 2px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="password"] {
+        width: 100%;
+        padding: 6px 10px;
+        margin: 2px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+    }
+    .btn_submit{
+      margin: 5px 0;
+      outline: none;
+      border: none;
+      // border-radius: 5px;
+      padding: 6px 10px;
+      margin: 10px 0;
+      color: #fff;
+      width: 100%;
+      background-color: $theme-color;
+    }
+  }
+  .btn-op {
+    margin: 10px 0;
+    padding: 6px 10px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid $theme-color;
+    color: $theme-color;
+  }
+}

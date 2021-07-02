@@ -1,0 +1,62 @@
+
+.add-btn {
+  width: 70px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  /* font-size: 1rem; */
+  /* line-height: 1.5rem; */
+}
+
+.add-btn > .add-btn1 {
+  border: 1px solid rgb(245, 51, 51);
+  border-radius: 5px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.add-btn > .add-btn2 {
+  border: 1px solid grey;
+  border-radius: 5px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  /* font-size: 1rem; */
+}
+.add-btn > .add-btn2 > .show-value {
+  padding: 2px 2px;
+  font-size: 20px;
+  width: 40%;
+  height: 100%;
+}
+
+.add-btn > .add-btn2 > .show-icon {
+  /* background-color: indianred; */
+  /* padding: 5px 0 5px; */
+  flex-direction: column;
+  width: 30%;
+  z-index: 1;
+}
+.show-icon > .icon-1 {
+  width: 100%;
+  font-size: 14px;
+  height: 17px;
+  text-align: center;
+
+  transform: rotate(270deg);
+  cursor: pointer;
+}
+
+.show-icon > .icon-2 {
+  font-size: 14px;
+  width: 100%;
+  height: 17px;
+  text-align: center;
+  transform: rotate(270deg);
+  display: block;
+  cursor: pointer;
+}

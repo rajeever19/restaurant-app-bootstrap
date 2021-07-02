@@ -1,0 +1,32 @@
+.flex-form {
+  display: flex;
+  height: 40px;
+  flex-wrap: nowrap;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.flex-form .label {
+  display: flex;
+  width: 35px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.flex-form .input {
+  align-self: center;
+  flex-grow: 4;
+  height: 80%;
+  border:none;
+  outline: none;
+}
+.togglebtn {
+  min-width: 75px;
+  height: 80%;
+ padding-top: 10px;
+}
+.togglebtn div{
+    width: 80px ;
+}
