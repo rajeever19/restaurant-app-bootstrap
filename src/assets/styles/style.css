@@ -230,6 +230,72 @@ h1 {
   transition: background 0s;
 }
 
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #cccccc;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eeeeee;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+}
+.modal-content button {
+  margin-top: 0.5rem;
+  outline: none;
+  border: none;
+  background-color: #ff5816;
+  display: inline-block;
+}
+
+.close-button {
+  display: flex;
+  justify-content: flex-end;
+  width: 1rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 30px;
+  background-color: #eeeeee;
+}
+.close-button .fa {
+  width: 15px;
+  height: 15px;
+}
+
+.close-button:hover {
+  background-color: #adadad;
+}
+
+.show-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 111;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
 .form_container {
   height: 100vh;
   width: 100%;
@@ -368,6 +434,7 @@ h1 {
   background-color: #dbd6d6;
 }
 .checkout-container .left_panel {
+  font-weight: lighter;
   margin: 2%;
   background-color: #fff;
   display: flex;
@@ -381,17 +448,20 @@ h1 {
 .checkout-container .left_panel .tologin {
   display: inline-block;
   padding: 0.5rem;
-  width: 150px;
+  width: 180px;
   font-size: 15px;
   border: 1px solid #ff5816;
 }
 .checkout-container .left_panel .toquick-payment {
-  margin-left: 10px;
+  margin-left: 20px;
   display: inline-block;
   padding: 0.5rem;
   font-size: 15px;
-  width: 150px;
+  width: 180px;
   background-color: #ff5816;
+}
+.checkout-container .left_panel h5 {
+  margin-top: 15px;
 }
 .checkout-container .left_panel .btn {
   outline: none !important;
@@ -400,6 +470,7 @@ h1 {
   transform: scale(1.1);
 }
 .checkout-container .right_panel {
+  font-weight: lighter;
   margin: 2%;
   padding: 50px;
   background-color: #fff;
@@ -470,32 +541,40 @@ h1 {
   width: 25px;
   align-content: flex-end;
 }
+.checkout-container .right_panel h6 {
+  margin-top: 7px;
+}
 .checkout-container .right_panel .item-total {
+  margin-top: 7px;
   height: 25px;
   display: flex;
   justify-content: space-between;
 }
 .checkout-container .right_panel .Delivery-Charge {
+  margin-top: 7px;
   height: 25px;
   display: flex;
   justify-content: space-between;
 }
 .checkout-container .right_panel .Tax {
+  margin-top: 7px;
   height: 25px;
   display: flex;
   justify-content: space-between;
 }
 .checkout-container .right_panel .Tip {
+  margin-top: 7px;
   height: 25px;
   display: flex;
   justify-content: space-between;
 }
 .checkout-container .right_panel .Tip .boxb {
-  height: 25px;
+  height: 30px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 70px;
+  width: 75px;
+  border-radius: 5px;
   color: #ff5816;
   border: 1px solid #ff5816;
 }
@@ -505,7 +584,7 @@ h1 {
   justify-content: space-between;
 }
 .checkout-container .right_panel .hr {
-  margin-top: 5px;
+  margin-top: 15px;
   margin-bottom: 5px;
   border-bottom: 1px dotted #444;
 }

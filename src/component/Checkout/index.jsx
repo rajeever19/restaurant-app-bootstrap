@@ -33,7 +33,7 @@ const Checkout = () => {
   const changelocation = () => {
     history.push("/");
   };
-  
+
   useEffect(async () => {
     const { data: d } = await userService.checkout(data);
     setcheckout(d);
@@ -48,11 +48,11 @@ const Checkout = () => {
     }
   };
   changeL();
-  const settip=(p)=>{
-    setTippage(false)
-    setdata({...data,tip:p})
-    console.log(p)
-  }
+  const settip = (p) => {
+    setTippage(false);
+    setdata({ ...data, tip: p });
+    console.log(p);
+  };
   return (
     <div className="checkout-container">
       <div className="left_panel">
@@ -168,10 +168,7 @@ const Checkout = () => {
         </div>
       </div>
       {tipPage ? (
-        <Tip
-          close={() => setTippage(false)}
-          submittip={(p) => settip(p)}
-        />
+        <Tip close={() => setTippage(false)} submittip={(p) => settip(p)} />
       ) : (
         ""
       )}

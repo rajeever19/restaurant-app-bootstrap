@@ -7,6 +7,7 @@
   flex-direction: row;
   background-color: rgb(219, 214, 214);
   .left_panel {
+    font-weight: lighter;
     margin: 2%;
     background-color: #fff;
     display: flex;
@@ -20,17 +21,20 @@
     .tologin {
       display: inline-block;
       padding: 0.5rem;
-      width: 150px;
+      width: 180px;
       font-size: 15px;
       border: 1px solid $theme-color;
     }
     .toquick-payment {
-      margin-left: 10px;
+      margin-left: 20px;
       display: inline-block;
       padding: 0.5rem;
       font-size: 15px;
-      width: 150px;
+      width: 180px;
       background-color: $theme-color;
+    }
+    h5{
+      margin-top: 15px;
     }
     .btn {
       outline: none !important;
@@ -40,6 +44,7 @@
     }
   }
   .right_panel {
+    font-weight: lighter;
     margin: 2%;
     padding: 50px;
     background-color: #fff;
@@ -111,34 +116,45 @@
         align-content: flex-end;
       }
     }
+    h6 {
+      margin-top: 7px;
+    }
     .item-total {
+      margin-top: 7px;
       height: 25px;
       display: flex;
       justify-content: space-between;
     }
     .Delivery-Charge {
+      margin-top: 7px;
+
       height: 25px;
 
       display: flex;
       justify-content: space-between;
     }
     .Tax {
+      margin-top: 7px;
+
       height: 25px;
 
       display: flex;
       justify-content: space-between;
     }
     .Tip {
+      margin-top: 7px;
+
       height: 25px;
 
       display: flex;
       justify-content: space-between;
       .boxb {
-        height: 25px;
+        height: 30px;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        width: 70px;
+        width: 75px;
+        border-radius: 5px;
         color: $theme-color;
         border: 1px solid $theme-color;
       }
@@ -150,7 +166,7 @@
       justify-content: space-between;
     }
     .hr {
-      margin-top: 5px;
+      margin-top: 15px;
       margin-bottom: 5px;
       border-bottom: 1px dotted #444;
     }

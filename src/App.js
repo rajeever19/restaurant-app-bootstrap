@@ -11,7 +11,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./assets/styles/style.css";
 import "./App.css";
 import { config } from "./services/userService";
-import Notfound from './component/Notfound';
+import Notfound from "./component/Notfound";
+import Model from "./component/common/Model";
 
 class App extends Component {
   state = {
@@ -23,7 +24,7 @@ class App extends Component {
     if (user) {
       localStorage.setItem("user", JSON.stringify(user));
     }
-    const configure=await config()
+    const configure = await config();
     localStorage.setItem("config", JSON.stringify(configure));
 
     console.log(user);
@@ -38,8 +39,8 @@ class App extends Component {
         <div className="container-main">
           <Navbar user={user} />
           <Switch>
-          <Route exact path="/login" component={FormofLogin} />
-            <Route  path="/not-found" component={Notfound} />
+            <Route exact path="/login" component={FormofLogin} />
+            <Route path="/not-found" component={Notfound} />
 
             <Route path="/checkout">
               {user ? <Checkout /> : <FormofLogin />}
@@ -47,6 +48,7 @@ class App extends Component {
             {/* <Route exact path="/checkout" component={Checkout} /> */}
             <Route exact path="/" component={Main1} />
           </Switch>
+          {/* <Model /> */}
         </div>
       </FoodProvider>
     );

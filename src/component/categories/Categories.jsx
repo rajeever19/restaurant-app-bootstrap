@@ -35,19 +35,6 @@ const Categories = () => {
   };
   return (
     <>
-      {selectedItem >= 0 ? (
-        <div
-          key={"sidetr"}
-          className="cate_element-c text-secondary animate__animated animate__bounce"
-          onClick={() => setSelectedItem(-1)}
-        >
-          <span className="rounded-circle">x</span>
-          <div> Clear Filter</div>
-        </div>
-      ) : (
-        ""
-      )}
-
       {items.map((a, i) => (
         <div
           key={a._id + "side" + i}
