@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import LoginForm from "./loginandregister/loginform";
-import RegisterForm from "./loginandregister/registerform";
-const FormofLogin = () => {
+import Register from '../component/Form/Register';
+import Login from '../component/Form/Login';
+
+const LoginForm = () => {
   const [changeform, setChagefrom] = useState(true);
   return (
     <div className="form_container">
       <div className="form_setup">
-        {changeform ? <LoginForm /> : <RegisterForm />}
+        {changeform ? <Login /> : <Register/>}
         <button className="btn-op" onClick={() => setChagefrom(!changeform)}>
           {" "}
           {changeform ? "I Don't have an Account" : "I have an Account"}
         </button>
+        
       </div>
     </div>
   );
 };
 
-export default FormofLogin;
+export default LoginForm;

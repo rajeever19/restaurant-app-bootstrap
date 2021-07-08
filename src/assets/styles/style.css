@@ -213,18 +213,18 @@ h1 {
   color: #a5a4a4;
 }
 
-.SUB_mit .btnab {
+.btnab {
   margin-top: 5px;
   color: #ffffff !important;
   background-color: #ff5816 !important;
   background-position: center;
   transition: background 0.8s;
 }
-.SUB_mit .btnab:hover {
+.btnab:hover {
   transform: scale(1.05);
   background: #f1916b radial-gradient(circle, transparent 1%, #faa483 1%) center/15000%;
 }
-.SUB_mit .btnab:active {
+.btnab:active {
   background-color: #ff5816;
   background-size: 100%;
   transition: background 0s;

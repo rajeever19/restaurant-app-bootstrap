@@ -42,7 +42,7 @@ const foodReducer = (state, action) => {
       return {
         ...state,
         foods: state.foods.map((food) =>
-          food.id == action.payload
+          food.id === action.payload
             ? Object.assign(food, { completed: true })
             : food
         ),
@@ -55,7 +55,7 @@ const foodReducer = (state, action) => {
     case DELETE_FOOD_TO_CART:
       return {
         ...state,
-        cart: state.cart.filter((f) => f.id != action.payload),
+        cart: state.cart.filter((f) => f.id !== action.payload),
       };
     case DELETE_ALL_FOOD_TO_CART:
       return {
@@ -67,14 +67,14 @@ const foodReducer = (state, action) => {
       return {
         ...state,
         cart: state.cart.map((a) =>
-          a.id == action.payload ? { ...a, quantity: a.quantity + 1 } : a
+          a.id === action.payload ? { ...a, quantity: a.quantity + 1 } : a
         ),
       };
     case DECREASE_FOOD_TO_CART:
       return {
         ...state,
         cart: state.cart.map((a) =>
-          a.id == action.payload ? { ...a, quantity: a.quantity - 1 } : a
+          a.id === action.payload ? { ...a, quantity: a.quantity - 1 } : a
         ),
       };
     case SET_SEARCH:

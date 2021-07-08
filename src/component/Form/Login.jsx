@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
-import auth from "../../../services/authService";
-import Input from "../../common/Input";
+import auth from "../../services/authService";
+import Input from "../common/Input";
 
 
-class LoginForm extends Component {
+class Login extends Component {
   state = {
     data: { username: "", password: "" },
     errors: {},
@@ -123,4 +123,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+export default Login;

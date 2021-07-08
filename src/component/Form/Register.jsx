@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
-import * as userService from "../../../services/userService";
-import auth from "../../../services/authService";
-import Input from "../../common/Input";
+import * as userService from "../../services/userService";
+import auth from "../../services/authService";
+import Input from "../common/Input";
 
-class RegisterForm extends Component {
+class Register extends Component {
   state = {
     data: { first_name: "", last_name: "", phone: "", password: "", email: "" },
     errors: {},
@@ -159,4 +159,4 @@ class RegisterForm extends Component {
   }
 }
 
-export default RegisterForm;
+export default Register;

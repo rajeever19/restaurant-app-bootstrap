@@ -1,15 +1,15 @@
-import React, { useContext, useHistory, useEffect,useState } from "react";
-import Banner from "./Banner/Banner";
-import Categories from "./categories/Categories";
-import Searchbox from "./common/searchbtn/Searchbtn";
-import Cart from "./cart/cart";
+import React, { useContext } from "react";
+import Banner from "../component/Banner/Banner";
 import { FoodContext } from "../context/FoodProvider";
-import Products from "./product/Products";
+import Cart from "../component/Cart/Cart";
+import Searchbox from "../component/common/Searchbox/Searchbox";
+import Products from "../component/Product/Products";
+import { Link } from "react-router-dom";
+import Categories from "../component/Categories/Categories";
 
 const Main1 = () => {
   const foodContext = useContext(FoodContext);
-  const { cart: cp, foods } = foodContext;
-const [smodel,setmodel]=useState(true)
+  const { cart: cp } = foodContext;
   return (
     <>
       <Banner />
@@ -20,14 +20,14 @@ const [smodel,setmodel]=useState(true)
         <div className="col-sm-6">
           <Searchbox />
           <br />
-
+          {/* 
           <div className="dropdown">
-            {/* <Dropdown
+            <Dropdown
                 items={cate}
                 selectedItem={this.state.selectedCategories}
                 onItemSelect={this.handleCategorySelect}
-              /> */}
-          </div>
+              /> 
+          </div>*/}
           <Products />
         </div>
         <div className="d-none d-sm-inline col-sm-4 ">
@@ -37,10 +37,14 @@ const [smodel,setmodel]=useState(true)
       <div className="bottom-btn">
         <div className="desc">
           {cp.length} item | ${" "}
-          {cp.reduce((a, c) => a + c.price * c.numberOfItem, 0)}
+          {cp.reduce((a, c) => a + c.price * c.quantity, 0)}
         </div>
         <button className="btn">
-          <i className="fa fa-cart-arrow-down" aria-hidden="true"></i> continue
+          <i
+            className="fa fa-cart-arrow-down border-light"
+            aria-hidden="true"
+          ></i>{" "}
+          <Link to="/checkout"> continue</Link>
         </button>
       </div>
       {/* <Model /> */}

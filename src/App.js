@@ -3,16 +3,17 @@ import Navbar from "./component/Navbar/Navbar";
 import auth from "./services/authService";
 import { Switch, Route } from "react-router-dom";
 import FoodProvider from "./context/FoodProvider";
-import Checkout from "./component/Checkout/index";
-import Main1 from "./component/Main1";
-import FormofLogin from "./component/form/form";
+import Checkout from "./Pages/Checkout";
+import Main from "./Pages/Main";
+
+import { config } from "./services/userService";
+import Notfound from "./Pages/Notfound";
+import Model from "./Pages/Model";
 
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./assets/styles/style.css";
 import "./App.css";
-import { config } from "./services/userService";
-import Notfound from "./component/Notfound";
-import Model from "./component/common/Model";
+import LoginForm from './Pages/LoginForm';
 
 class App extends Component {
   state = {
@@ -39,14 +40,11 @@ class App extends Component {
         <div className="container-main">
           <Navbar user={user} />
           <Switch>
-            <Route exact path="/login" component={FormofLogin} />
+            <Route exact path="/login" component={LoginForm} />
             <Route path="/not-found" component={Notfound} />
 
-            <Route path="/checkout">
-              {user ? <Checkout /> : <FormofLogin />}
-            </Route>
-            {/* <Route exact path="/checkout" component={Checkout} /> */}
-            <Route exact path="/" component={Main1} />
+            <Route path="/checkout">{user ? <Checkout /> : <Model />}</Route>
+            <Route exact path="/" component={Main} />
           </Switch>
           {/* <Model /> */}
         </div>

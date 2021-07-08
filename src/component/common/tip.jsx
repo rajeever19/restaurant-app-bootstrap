@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function Tip({ close, submittip }) {
-  const [tip, setTip] = useState();
+function Tip({ close, submittip,total }) {
+  const [tip, setTip] = useState(total*0.1);
   const handlechange = (e) => {
     setTip(e.currentTarget.value);
   };
@@ -19,26 +19,26 @@ function Tip({ close, submittip }) {
         </div>
         <div className="tipbtn">
           <div
-            className={tip === 10 ? "tip_value bgt" : "tip_value"}
-            onClick={() => setTip(10)}
+            className={tip === total*0.1 ? "tip_value bgt" : "tip_value"}
+            onClick={() => setTip(total*0.1)}
           >
             10%
           </div>
           <div
-            className={tip === 15 ? "tip_value bgt" : "tip_value"}
-            onClick={() => setTip(15)}
+            className={tip === total*0.15 ? "tip_value bgt" : "tip_value"}
+            onClick={() => setTip(total*0.15)}
           >
             15%
           </div>
           <div
-            className={tip === 20 ? "tip_value bgt" : "tip_value"}
-            onClick={() => setTip(20)}
+            className={tip === total*0.2 ? "tip_value bgt" : "tip_value"}
+            onClick={() => setTip(total*0.2)}
           >
             20%
           </div>
           <div
-            className={tip === 25 ? "tip_value bgt" : "tip_value"}
-            onClick={() => setTip(25)}
+            className={tip === total*0.25 ? "tip_value bgt" : "tip_value"}
+            onClick={() => setTip(total*0.25)}
           >
             25%
           </div>

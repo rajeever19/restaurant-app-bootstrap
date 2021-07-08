@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./togglebtn.css";
+import "./tcbox.css";
 const Togglebtn = ({ lname = "", rname = "", onclick }) => {
   const [to, setto] = useState(true);
   const thetoggle = () => {

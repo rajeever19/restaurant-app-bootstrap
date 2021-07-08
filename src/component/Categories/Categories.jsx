@@ -1,34 +1,36 @@
 import React, { useEffect, useState, useContext } from "react";
-import { getCategories } from "../../services/categoryService";
-import { getFoodbyCategory, getProducts } from "../../services/foodService";
+import {
+  getCategories,
+  getFoodbyCategory,
+  getProducts,
+} from "../../services/foodService";
 import { FoodContext } from "../../context/FoodProvider";
 
 const Categories = () => {
   const foodContext = useContext(FoodContext);
   const { setFood } = foodContext;
-  const [selectedItem, setSelectedItem] = useState(-1);
+  const [selectedCategory, setSelectedCategory] = useState(-1);
   const [items, setItem] = useState([]);
   const [loading, setLoading] = useState(false);
+
+
   useEffect(async () => {
     const { data } = await getCategories();
     const cate = [{ name: "All food", id: 0 }, ...data.category];
     setItem(cate);
   }, []);
 
-  const changeCate = async (a, i) => {
-    setSelectedItem(i);
+  const changeCategory = async (a, i) => {
+    setSelectedCategory(i);
     if (i === -1 || i === 0) {
       setLoading(true);
       const { data: product1 } = await getProducts();
       setFood(product1);
       setLoading(false);
-
       return;
     }
     setLoading(true);
-
     const { data: products } = await getFoodbyCategory(a.id);
-
     setLoading(false);
     setFood(products);
     // console.log("cate", products, a, i);
@@ -39,15 +41,15 @@ const Categories = () => {
         <div
           key={a._id + "side" + i}
           className={
-            selectedItem === i
+            selectedCategory === i
               ? "cate_element text-light bg-secondary"
               : "cate_element text-secondary "
           }
-          onClick={() => changeCate(a, i)}
+          onClick={() => changeCategory(a, i)}
         >
           <div>
             {a.name}
-            {loading && selectedItem === i ? (
+            {loading && selectedCategory === i ? (
               <span
                 class="spinner-border spinner-border-sm"
                 role="status"

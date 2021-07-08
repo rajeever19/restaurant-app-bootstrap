@@ -1,12 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
-import { FoodContext } from "../../context/FoodProvider";
-import nonveglogo from "../../assets/image/nonveg.png";
-import veglogo from "../../assets/image/veg.png";
-import FormofLogin from "../form/form";
-import * as userService from "../../services/userService";
+import { FoodContext } from "../context/FoodProvider";
+import nonveglogo from "../assets/image/nonveg.png";
+import veglogo from "../assets/image/veg.png";
+// import FormofLogin from "../form/form";
+import * as userService from "../services/userService";
 import { useHistory } from "react-router-dom";
-import Tip from "./tip";
-// import AddressForm from "../form/Address";
+import Tip from '../component/common/tip';
 
 const Checkout = () => {
   const history = useHistory();
@@ -19,6 +18,7 @@ const Checkout = () => {
     let r = pr.reduce((a, c) => a + c.price * c.quantity, 0);
     return r.toFixed(2);
   };
+  
   const [data, setdata] = useState({
     date: new Date().toLocaleString(),
     total: Math.round(subTotal(cart)),
@@ -65,8 +65,9 @@ const Checkout = () => {
           <>
             <h5>Account</h5>
             {change === 1 ? (
-              <FormofLogin />
+              ""
             ) : (
+              //               <FormofLogin />
               <>
                 <p>
                   To Place your order now, log in to your existing account or
@@ -168,7 +169,7 @@ const Checkout = () => {
         </div>
       </div>
       {tipPage ? (
-        <Tip close={() => setTippage(false)} submittip={(p) => settip(p)} />
+        <Tip close={() => setTippage(false)} total={checkout[0].item_total} submittip={(p) => settip(p)} />
       ) : (
         ""
       )}

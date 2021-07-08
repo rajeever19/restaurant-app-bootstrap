@@ -1,20 +1,28 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
-import * as userService from "../../../services/userService";
-// import auth from "../services/authService";
-import Input from "../../common/Input";
+import * as userService from "../../services/userService";
+import auth from "../../services/authService";
+import Input from "../common/Input";
 
-class QuickCheckout extends Component {
+class Register extends Component {
   state = {
-    data: { first_name: "", last_name: "", phone: "", email: "" },
+    data: {
+      first_name: "",
+      last_name: "",
+      phone: "",
+      password: "afkdffaf",
+      email: "",
+    },
     errors: {},
     msg: "",
+    loading: false,
   };
 
   schema = {
     first_name: Joi.string().required().label("First Name"),
     last_name: Joi.string().required().label("Last Name"),
     phone: Joi.number().required().min(10).label("Phone Number"),
+    password: Joi.string().required().min(8).label("Password"),
     email: Joi.string().email().label("Email"),
   };
   handleSubmit = (e) => {
@@ -30,7 +38,6 @@ class QuickCheckout extends Component {
     if (!result.error) return;
     const errors = {};
     for (let item of result.error.details) {
-      // console.log(item);
       errors[item.path[0]] = item.message;
     }
     console.log(errors);
@@ -57,25 +64,26 @@ class QuickCheckout extends Component {
   };
 
   doSubmit = async () => {
+    this.setState({ loading: true });
     try {
       console.log("fdjalsjf");
       const { data } = await userService.register(this.state.data);
-      console.log(data);
-      // auth.loginWithJwt(data[0]);
-      this.props.history.push("/");
-      // window.location="/"
+      console.log(data, "rajajfda");
+      auth.loginWithJwt(data[0]);
+      window.location = "/";
     } catch (ex) {
       if (ex.response && ex.response.status >= 400) {
         let msgs = { ...ex.response };
-        // let msg = msgs.msg;
-        // this.setState({ msg });
-        console.log(ex.response, msgs);
+        let msg = msgs.data;
+        this.setState({ msg: msg.msg });
+        console.log(ex.response, msg);
       }
       // console.log("submited", this.state.msg);
     }
+    this.setState({ loading: false });
   };
   render() {
-    const { data, errors, msg } = this.state;
+    const { data, errors, msg, loading } = this.state;
     return (
       <>
         <div className="header text-center">Sign up</div>
@@ -124,12 +132,29 @@ class QuickCheckout extends Component {
             type="text"
           />
 
-          {msg ? <div className="msg">{msg}</div> : ""}
-          <input type="submit" />
+          {msg ? (
+            <div className="alert alert-danger">
+              <p>{msg}</p>
+            </div>
+          ) : (
+            ""
+          )}
+
+          <button type="submit" className="btn_submit">
+            {loading ? (
+              <span
+                class="spinner-border spinner-border-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
+            ) : (
+              "Quick Login"
+            )}
+          </button>
         </form>
       </>
     );
   }
 }
 
-export default QuickCheckout;
+export default Register;

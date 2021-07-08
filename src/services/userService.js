@@ -1,12 +1,8 @@
-// import http from "./httpService";
-import { apiUrl } from "../config.json";
 import axios from "axios";
-
-const apiEndpoint = apiUrl + "customer/signup/";
+import { apiEndPoint } from "../Constants/apiEndPoint";
 
 export async function register(user) {
-  // console.log(user, "register");
-  return await axios.post(apiEndpoint, {
+  return await axios.post(apiEndPoint.signup, {
     first_name: user.first_name,
     last_name: user.last_name,
     isGuest: true,
@@ -15,17 +11,13 @@ export async function register(user) {
     email: user.email,
   });
 }
-const apiEndpointofcheckout = apiUrl + "/customer/checkout/";
 
 export async function checkout(data) {
-  // console.log(user, "register");
-
-  return await axios.post(apiEndpointofcheckout, data);
+  return await axios.post(apiEndPoint.checkout, data);
 }
 
-const apiOfConfig = apiUrl + "/branchinfo/config/";
 export async function config() {
-  return await axios.get(apiOfConfig);
+  return await axios.get(apiEndPoint.config);
 }
 
 // {

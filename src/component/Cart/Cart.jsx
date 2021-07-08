@@ -1,10 +1,9 @@
-import React, { Component, useContext, useState } from "react";
+import React, {  useContext, useState } from "react";
 import img from "../../assets/image/cart.png";
 import CartElement from "./CartElement";
 import { FoodContext } from "../../context/FoodProvider";
 import { useHistory } from "react-router-dom";
 import * as userService from "../../services/userService";
-import Model from "../common/Model";
 
 const Cart = () => {
   const foodContext = useContext(FoodContext);
@@ -90,7 +89,6 @@ const Cart = () => {
             )}
           </button>
         </div>
-        {/* <Model /> */}
       </div>
     );
   }

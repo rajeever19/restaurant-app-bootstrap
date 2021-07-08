@@ -143,26 +143,26 @@ h1 {
 }
 
 .SUB_mit {
-  .btnab {
-    margin-top: 5px;
-    color: #ffffff !important;
-    background-color: rgb(255, 88, 22) !important;
-    background-position: center;
-    transition: background 0.8s;
-    &:hover {
-      transform: scale(1.05);
-      background: rgb(241, 145, 107)
-        radial-gradient(circle, transparent 1%, rgb(250, 164, 131) 1%)
-        center/15000%;
-    }
-    &:active {
-      background-color: rgb(255, 88, 22);
-      background-size: 100%;
-      transition: background 0s;
-    }
+  
+}
+.btnab {
+  margin-top: 5px;
+  color: #ffffff !important;
+  background-color: rgb(255, 88, 22) !important;
+  background-position: center;
+  transition: background 0.8s;
+  &:hover {
+    transform: scale(1.05);
+    background: rgb(241, 145, 107)
+      radial-gradient(circle, transparent 1%, rgb(250, 164, 131) 1%)
+      center/15000%;
+  }
+  &:active {
+    background-color: rgb(255, 88, 22);
+    background-size: 100%;
+    transition: background 0s;
   }
 }
-
 .modal {
   position: fixed;
   left: 0;

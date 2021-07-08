@@ -1,18 +1,23 @@
-import { apiUrl } from "../config.json";
 import axios from "axios";
+import { apiEndPoint } from '../Constants/apiEndPoint';
 
-const apiEndpoint = apiUrl + "/menu/foods/";
+
 
 export function getProducts() {
   console.log("raj");
-  return axios.get(apiEndpoint);
+  return axios.get(apiEndPoint.food);
+}
+
+export function getCategories() {
+  console.log("cate");
+  return axios.get(apiEndPoint.category);
 }
 
 export function getFoodbyCategory(id) {
-  const apiEndCategory = `${"menu/foods/?category="}${id}`;
+  const apiEndCategory = `${apiEndPoint.category_Type}${id}`;
   return new Promise((resolve, reject) => {
     axios
-      .get(`${apiUrl}${apiEndCategory}`)
+      .get(`${apiEndCategory}`)
       .then((res) => {
         resolve(res);
       })

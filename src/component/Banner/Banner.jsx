@@ -1,21 +1,20 @@
 import React, { useContext } from "react";
 import img from "../../assets/image/img1.png";
-import Togglebtn from "../common/togglebtn/Togglebtn";
-import Icon from "../common/icon/Icon";
-import "./banner.css";
 import { FoodContext } from "../../context/FoodProvider";
+import Icon from "../common/Icon/Icon";
+import "./banner.css";
+import Togglebtn from '../common/ToggleCheckbox/ToggleCheckbox';
 
 const Banner = (props) => {
   const foodContext = useContext(FoodContext);
   const { is_veg, is_nonveg, setnonveg, setveg } = foodContext;
-  const food1 = (t) => {
+  const food1 = () => {
     setveg(!is_veg);
-    console.log(is_veg)
+    console.log(is_veg);
   };
-  const food2 = (t) => {
+  const food2 = () => {
     setnonveg(!is_nonveg);
   };
-  const { setFoodType } = props;
   return (
     <div className="header">
       <div className="header-content">
@@ -27,7 +26,7 @@ const Banner = (props) => {
           <div className="h-c-s-desc">
             <div className="h-c-s-desc-btn">
               <div className="t-btn">
-                <Togglebtn onclick={()=>food1()} />
+                <Togglebtn onclick={() => food1()} />
                 <div className="font-12">vegetarian</div>
               </div>
               <div className="t-btn">

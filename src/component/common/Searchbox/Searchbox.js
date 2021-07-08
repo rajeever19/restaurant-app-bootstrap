@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import Togglebtn from "../togglebtn/Togglebtn";
+import Togglebtn from "../ToggleCheckbox/ToggleCheckbox";
 import { FoodContext } from "../../../context/FoodProvider";
 import "./search.css";
-const Searchbtn = () => {
+const Searchbox = () => {
   const foodContext = useContext(FoodContext);
   const { listview, setlistview, search, setsearch } = foodContext;
   return (
@@ -31,4 +31,4 @@ const Searchbtn = () => {
   );
 };
 
-export default Searchbtn;
+export default Searchbox;
